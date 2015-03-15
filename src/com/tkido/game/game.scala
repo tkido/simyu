@@ -1,6 +1,9 @@
 package com.tkido.game
 
 class Game(controller:Controller, view:View) {
+  import com.tkido.tools.Logger
+  import com.tkido.simyu.yukkuri.Yukkuri
+  
   while(true){
     execute(controller.get())
   }
@@ -9,17 +12,18 @@ class Game(controller:Controller, view:View) {
     command match {
       case Quit => quit(command)
       case Create => create(command)
-      case _ => view.show(new MessageEvent(""))
+      case _ => ()
     }
   }
   
   def create(command:Command){
-    view.show(new MessageEvent("創造します"))
-    
+    Logger.debug("create")
+    val yu = new Yukkuri("reimu")
+    yu.step
   }
   
   def quit(command:Command){
-    view.show(new MessageEvent("終了します。"))
+    Logger.debug("quit")
   }
 
 }

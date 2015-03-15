@@ -5,7 +5,7 @@ package object tools {
     try{
       function()
     }catch{
-      case error => {
+      case error:Throwable => {
         Logger.fatal(error)
         default
       }
