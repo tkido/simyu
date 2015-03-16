@@ -2,7 +2,7 @@ package com.tkido.game
 
 class Game(controller:Controller, view:View) {
   import com.tkido.tools.Logger
-  import com.tkido.simyu.yukkuri.Yukkuri
+  import com.tkido.simyu.yukkuri._
   
   var command:Command = Quit
   do{
@@ -20,8 +20,8 @@ class Game(controller:Controller, view:View) {
   
   def create(command:Command){
     Logger.debug("create")
-    val yu = new Yukkuri("reimu")
-    yu.step
+    val yu = YukkuriFactory(ReimuSpecies)
+    Logger.debug(yu.isLive())
   }
   
   def quit(command:Command){

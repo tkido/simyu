@@ -1,10 +1,11 @@
 package com.tkido.simyu.yukkuri
 
-class Yukkuri(val name:String) {
-  import com.tkido.game.View
-  import com.tkido.simyu.event._
-  
-  def step{
-    View(new Greeting("ゆっくりしていってね！！！"))
-  }
-}
+import com.tkido.simyu.simulation._
+
+abstract class Species
+object ReimuSpecies extends Species
+object MarisaSpecies extends Species
+
+abstract class Yukkuri extends Live with Physical
+
+
