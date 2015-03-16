@@ -6,7 +6,7 @@ object main extends App {
   import com.tkido.tools.Logger
   import com.tkido.tools.Text
   
-  Logger.level = com.tkido.simyu.Config.logLevel
+  Logger.level = Config.logLevel
   
   new Game(new ConsoleController(), new ConsoleView())
 

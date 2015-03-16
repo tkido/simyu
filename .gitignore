@@ -1,0 +1,16 @@
+syntax: glob
+.cache
+.classpath
+.project
+.settings
+bin/
+*.class
+org.eclipse.jdt.core.prefs
+*.pyc
+*.BAK
+*.bak
+~$*
+.picasa.ini
+log/*.log
+build.properties
+conf.properties

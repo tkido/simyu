@@ -23,12 +23,16 @@ class ConsoleController extends Controller{
     val input = readLine("Input>")
     Logger.debug( "input is -> " + input)
     
-    val command = input match {
+    CommandParser(input)
+  }
+}
+
+object CommandParser {
+  def apply(arg:String) :Option[Command] = {
+    arg.trim.stripLineEnd.toLowerCase match {
       case "quit"   => Some(Quit)
       case "create"   => Some(Create)
       case _   => None
     }
-    command
   }
-  
 }

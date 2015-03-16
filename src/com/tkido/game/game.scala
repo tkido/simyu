@@ -4,9 +4,11 @@ class Game(controller:Controller, view:View) {
   import com.tkido.tools.Logger
   import com.tkido.simyu.yukkuri.Yukkuri
   
-  while(true){
-    execute(controller.get())
-  }
+  var command:Command = Quit
+  do{
+    command = controller.get()
+    execute(command)
+  }while(command != Quit)
   
   def execute(command:Command) {
     command match {
