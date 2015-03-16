@@ -9,7 +9,7 @@ object YukkuriFactory{
 }
 
 object ReimuFactory {
-  def apply(): Yukkuri = {
+  def apply(): Reimu = {
     new Reimu()
   }
 }
