@@ -1,5 +1,7 @@
 package com.tkido.simyu.yukkuri
 
+import com.tkido.game._
+import com.tkido.simyu._
 import com.tkido.simyu.simulation._
 import com.tkido.tools.Logger
 import java.util.UUID
@@ -15,6 +17,6 @@ abstract class Yukkuri extends Live with Physical{
   var parts:List[Parts] = List(new Core())
   
   def step{
-    
+    ActionHandler(GreetingAction)
   }
 }

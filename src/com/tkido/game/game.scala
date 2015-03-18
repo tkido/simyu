@@ -4,6 +4,8 @@ class Game(controller:Controller, view:View) {
   import com.tkido.tools.Logger
   import com.tkido.simyu.yukkuri._
   
+  execute(Create)
+  
   var command:Command = Quit
   do{
     command = controller.get()
@@ -21,6 +23,7 @@ class Game(controller:Controller, view:View) {
   def create(command:Command){
     Logger.debug("create")
     val yu = YukkuriFactory(ReimuSpecies)
+    yu.step
     Logger.debug(yu.isLive())
     Logger.debug(yu.parts)
   }

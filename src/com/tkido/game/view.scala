@@ -1,16 +1,15 @@
 package com.tkido.game
+import com.tkido.simyu._
 
 abstract class View {
-  import com.tkido.simyu.event._
-  
-  def show(event:Event)
+  def apply(event:Action)
 }
 
 class ConsoleView extends View{
   import com.tkido.simyu.event._
   
-  def show(event:Event) = {
-    println(event.toString)
+  def apply(action:Action) = {
+    println(action.toString)
   }
 }
 
@@ -19,7 +18,7 @@ object View {
   
   val view = new ConsoleView()
   
-  def apply(event:Event){
-    view.show(event)
+  def apply(action:Action){
+    view(action)
   }
 }
