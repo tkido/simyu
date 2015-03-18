@@ -8,7 +8,7 @@ abstract class Controller {
     while(command.isEmpty){
       command = input()
     }
-    Logger.debug( "command is -> "+ command.get)
+    Logger.debug( "#command == "+ command.get)
     command.get
   }
   
@@ -20,8 +20,8 @@ class ConsoleController extends Controller{
   import com.tkido.tools.Logger
   
   def input() :Option[Command] = {
-    val input = readLine("Input>")
-    Logger.debug( "input is -> " + input)
+    val input = readLine(">")
+    Logger.debug( "#input == " + input)
     
     CommandParser(input)
   }

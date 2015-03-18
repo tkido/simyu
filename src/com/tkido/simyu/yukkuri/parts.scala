@@ -13,7 +13,6 @@ class Core extends Parts{
 
 
 abstract class Ornament(val id:String) extends Parts{
-  Logger.debug(id)
   val name:String
 }
 

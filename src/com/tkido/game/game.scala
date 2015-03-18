@@ -4,13 +4,14 @@ class Game(controller:Controller, view:View) {
   import com.tkido.tools.Logger
   import com.tkido.simyu.yukkuri._
   
-  execute(Create)
+  mainloop(Create)
   
-  var command:Command = Quit
-  do{
-    command = controller.get()
+  @annotation.tailrec
+  private def mainloop(command:Command) :Unit = {
     execute(command)
-  }while(command != Quit)
+    if(command != Quit)
+      mainloop(controller.get())
+  }
   
   def execute(command:Command) {
     command match {
