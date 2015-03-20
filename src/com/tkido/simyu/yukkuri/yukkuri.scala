@@ -10,8 +10,7 @@ abstract class Species
 object ReimuSpecies extends Species
 object MarisaSpecies extends Species
 
-abstract class Yukkuri extends Live with Physical{
-  val id = UUID.randomUUID().toString
+abstract class Yukkuri extends Identical with Live with Physical{
   Logger.debug(id)
   
   var parts:List[Parts] = List(new Core())

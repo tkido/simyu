@@ -50,6 +50,14 @@ abstract class Logger{
   def close()
 }
 
+class PrintLogger extends Logger{
+  def log(arg: Any) {
+    println(arg)
+  }
+  
+  def close() {}
+}
+
 class FileLogger extends Logger{
   import java.io.FileOutputStream
   import java.io.OutputStreamWriter
@@ -64,18 +72,10 @@ class FileLogger extends Logger{
   
   def log(arg: Any) {
     writer.write(arg.toString + '\n')
-    println(arg)
+    //println(arg)
   }
   
   def close() {
     writer.close()
   }
-}
-
-class PrintLogger extends Logger{
-  def log(arg: Any) {
-    println(arg)
-  }
-  
-  def close() {}
 }
