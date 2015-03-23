@@ -24,7 +24,7 @@ class Game(controller:Controller, view:View) {
   def create(command:Command){
     Logger.debug("create")
     val yu = YukkuriFactory(ReimuSpecies)
-    yu.step
+    yu.simulate
     Logger.debug(yu.isLive())
     Logger.debug(yu.parts)
   }

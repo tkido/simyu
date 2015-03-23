@@ -15,7 +15,8 @@ abstract class Yukkuri extends Identical with Live with Physical{
   
   var parts:List[Parts] = List(new Core())
   
-  def step{
+  
+  def simulate{
     ActionHandler(GreetingAction)
   }
 }
