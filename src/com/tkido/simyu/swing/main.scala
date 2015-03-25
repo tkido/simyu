@@ -19,6 +19,7 @@ object main extends SimpleSwingApplication {
     //iconImage = ImageIO.read( getClass().getResourceAsStream( "icon.bmp" ) )
     menuBar = new MenuBar() {
       contents += new Menu( "ゆっくり" )
+      contents += new Menu( "アイテム" )
     }
   }
 }
