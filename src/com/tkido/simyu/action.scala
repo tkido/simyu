@@ -1,7 +1,7 @@
 package com.tkido.simyu
 
-abstract class Action
+import com.tkido.simyu.simulation.Actor
 
-case object GreetingAction extends Action{
-  override def toString = "「ゆっくりしていってね！！！」"
-}
+abstract sealed class Action(actor:Actor)
+
+case class GreetingAction(val actor:Actor) extends Action(actor)
