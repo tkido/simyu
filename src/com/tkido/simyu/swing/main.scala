@@ -12,14 +12,13 @@ import scala.swing.SimpleSwingApplication
 object main extends SimpleSwingApplication {
   def top = new MainFrame {
     title = "シムゆっくり"
-    minimumSize = new Dimension( 800, 480 )
-    cursor = new Cursor( Cursor.HAND_CURSOR )
+    minimumSize = new Dimension(800, 480)
+    cursor = new Cursor(Cursor.HAND_CURSOR)
     resizable = false
-    iconImage = ImageIO.read( getClass().getResourceAsStream( "/resource/favicon.bmp" ) )
+    iconImage = ImageIO.read(getClass().getResourceAsStream("/resource/favicon.bmp"))
     menuBar = new MenuBar() {
-      contents += new Menu( "ゆっくり" )
-      contents += new Menu( "アイテム" )
+      contents += new Menu("ゆっくり")
+      contents += new Menu("アイテム")
     }
   }
 }
-

@@ -30,8 +30,9 @@ class ConsoleController extends Controller{
 object CommandParser {
   def apply(arg:String) :Option[Command] = {
     arg.trim.stripLineEnd.toLowerCase match {
+      case ""       => Some(Pass)
       case "quit"   => Some(Quit)
-      case "create"   => Some(Create)
+      case "create" => Some(Create)
       case _   => None
     }
   }

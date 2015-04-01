@@ -1,4 +1,4 @@
 package com.tkido.simyu.yukkuri
 
-abstract class Species
-object ReimuSpecies extends Species
+abstract sealed class Species
+case object ReimuSpecies extends Species
