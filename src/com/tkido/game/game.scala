@@ -21,7 +21,14 @@ class Game(controller:Controller, view:View) {
       case Pass => pass
       case Quit => quit(command)
       case Create => create(command)
+      case Status => status
       case _ => ()
+    }
+  }
+  
+  def status{
+    for(yu <- yukkuries){
+      View(yu.toString)
     }
   }
   

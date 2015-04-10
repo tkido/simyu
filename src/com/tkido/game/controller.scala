@@ -4,12 +4,14 @@ abstract class Controller {
   import com.tkido.tools.Logger
   
   def get() :Command = {
-    var command:Option[Command] = None
-    while(command.isEmpty){
-      command = input()
+    @annotation.tailrec
+    def loop() :Command = {
+      input() match{
+        case Some(c) => c
+        case None => loop()
+      }
     }
-    Logger.debug( "#command == "+ command.get)
-    command.get
+    loop()
   }
   
   def input() :Option[Command]
@@ -21,8 +23,7 @@ class ConsoleController extends Controller{
   
   def input() :Option[Command] = {
     val input = readLine(">")
-    Logger.debug( "#input == " + input)
-    
+    Logger.debug(input)
     CommandParser(input)
   }
 }
@@ -33,6 +34,7 @@ object CommandParser {
       case ""       => Some(Pass)
       case "quit"   => Some(Quit)
       case "create" => Some(Create)
+      case "status" => Some(Status)
       case _   => None
     }
   }

@@ -4,4 +4,4 @@ import com.tkido.simyu.simulation.Actor
 
 abstract sealed class Action(actor:Actor)
 
-case class GreetingAction(val actor:Actor) extends Action(actor)
+case class GreetingAction(actor:Actor) extends Action(actor)

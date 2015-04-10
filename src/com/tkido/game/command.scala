@@ -8,4 +8,5 @@ case object Quit extends SysCommand
 
 case object Pass extends AppCommand
 case object Create extends AppCommand
+case object Status extends AppCommand
 
