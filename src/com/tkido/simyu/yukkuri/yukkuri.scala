@@ -8,14 +8,13 @@ import com.tkido.tools.Logger
 abstract class Yukkuri(val species:Species) extends Actor with Identical{
   Logger.debug(id)
   
-  override val label = "ゆっくり"
-  
   var size = 30.0
   var life = 1.0
   var energy = 1.0
   
   def simulate{
-    ActionHandler(GreetingAction(this))
+    ActionHandler(PassAction(this))
+    ActionHandler(GreetingAction(this, EveryOne))
   }
   
   override def toString = {

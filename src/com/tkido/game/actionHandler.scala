@@ -5,12 +5,13 @@ import com.tkido.simyu.language._
 
 object ActionHandler {
   def apply(action:Action){
+    View(action)
+    View(Translator(action))
     action match{
       case a:GreetingAction => {
-        View(a)
-        View(Translator(a))
+        //実際の処理
       }
-      case a => View(a)
+      case _ => ()
     }
   }
 }
