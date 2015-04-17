@@ -5,6 +5,17 @@ trait Identical{
   val id = UUID.randomUUID().toString
 }
 
-abstract class Actor{
-  val label = "誰か"
+
+abstract class Thing{
+  val label:String
+}
+
+abstract class Actor extends Thing{
+}
+
+case object EveryOne extends Actor{
+  val label = "みんな"
+}
+case object Human extends Actor{
+  val label = "おにいさん"
 }
