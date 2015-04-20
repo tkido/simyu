@@ -18,6 +18,7 @@ abstract class Yukkuri(val species:Species) extends Actor with Identical{
   }
   
   override def toString = {
-    f"""$label%s($id%s) size:$size%2.2f life:$life%2.2f energy:$energy%2.2f"""
+    val shortId = id.take(4)
+    f"""$label%s($shortId%s) size:$size%2.2f life:$life%2.2f energy:$energy%2.2f"""
   }
 }
