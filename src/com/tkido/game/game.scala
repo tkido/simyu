@@ -21,8 +21,8 @@ class Game(controller:Controller, view:View) {
   def execute(command:Command) {
     View(Clock)
     command match {
-      case Pass => pass
-      case Quit => quit(command)
+      case Pass   => pass
+      case Quit   => quit(command)
       case Create => create(command)
       case Status => status
       case _ => ()
@@ -30,22 +30,23 @@ class Game(controller:Controller, view:View) {
   }
   
   def status{
-    for(yu <- yukkuries){
-      View(yu.toString)
-    }
+    for(yukkuri <- yukkuries)
+      View(yukkuri)
   }
   
   def pass{
-    for(yu <- yukkuries){
-      yu.simulate
-    }
+    for(yukkuri <- yukkuries)
+      yukkuri.simulate
     Clock.step
   }
   
   def create(command:Command){
     Logger.debug("create")
-    val yu = YukkuriFactory(ReimuSpecies)
-    yukkuries.add(yu)
+    val yukkuri = YukkuriFactory(ReimuSpecies)
+    yukkuries.add(yukkuri)
+    val yukkuri2 = YukkuriFactory(ReimuSpecies)
+    yukkuri2.size = 0.16
+    yukkuries.add(yukkuri2)
   }
   
   def quit(command:Command){
