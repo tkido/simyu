@@ -18,34 +18,20 @@ class Game(controller:Controller, view:View) {
   
   def execute(command:Command) {
     command match {
-      case Pass => pass
-      case Quit => quit(command)
-      case Create => create(command)
-      case Status => status
-      case _ => ()
+      case Pass =>
+        for(yu <- yukkuries)
+          yu.simulate
+      case Quit =>
+        Logger.debug("quit")
+      case Create =>
+        val yu = YukkuriFactory(ReimuSpecies)
+        yukkuries.add(yu)
+      case Status =>
+        for(yu <- yukkuries)
+          View(yu.toString)
+      case _ =>
+        Logger.fatal("MUST NOT HAPPEN!!")
     }
   }
   
-  def status{
-    for(yu <- yukkuries){
-      View(yu.toString)
-    }
-  }
-  
-  def pass{
-    for(yu <- yukkuries){
-      yu.simulate
-    }
-  }
-  
-  def create(command:Command){
-    Logger.debug("create")
-    val yu = YukkuriFactory(ReimuSpecies)
-    yukkuries.add(yu)
-  }
-  
-  def quit(command:Command){
-    Logger.debug("quit")
-  }
-
 }
