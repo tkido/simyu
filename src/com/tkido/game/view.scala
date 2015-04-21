@@ -11,7 +11,7 @@ class ConsoleView extends View{
       case PassAction(a) => println(a.label + "はゆっくりしている。")
       case GreetingAction(a, t) => println(a.label + "は" + t.label + "にあいさつをした。")
       case s:String => println(s)
-      case _ => ()
+      case a:Any => println(a.toString)
     }
   }
 }
