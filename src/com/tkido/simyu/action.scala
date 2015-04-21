@@ -11,4 +11,5 @@ abstract sealed class TargetAction extends Action{
 }
 
 case class PassAction(actor:Actor) extends Action
+case class DieAction(actor:Actor) extends Action
 case class GreetingAction(actor:Actor, target:Thing) extends TargetAction

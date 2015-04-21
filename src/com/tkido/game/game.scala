@@ -2,12 +2,14 @@ package com.tkido.game
 
 class Game(controller:Controller, view:View) {
   import com.tkido.tools.Logger
+  import com.tkido.simyu.tools.Clock
   import com.tkido.simyu.yukkuri._
   import scala.collection.mutable.{Set => MSet}
   
   val yukkuries:MSet[Yukkuri] = MSet()
   
   mainloop(Create)
+  
   
   @annotation.tailrec
   private def mainloop(command:Command) :Unit = {
@@ -17,6 +19,7 @@ class Game(controller:Controller, view:View) {
   }
   
   def execute(command:Command) {
+    View(Clock)
     command match {
       case Pass =>
         for(yu <- yukkuries)
@@ -33,5 +36,4 @@ class Game(controller:Controller, view:View) {
         Logger.fatal("MUST NOT HAPPEN!!")
     }
   }
-  
 }

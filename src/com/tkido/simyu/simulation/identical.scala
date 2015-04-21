@@ -1,8 +1,9 @@
 package com.tkido.simyu.simulation
 
+import com.tkido.simyu.tools.Randomizer
+
 trait Identical{
-  import java.util.UUID
-  val id = UUID.randomUUID().toString
+  val id = Randomizer.newId
 }
 
 
