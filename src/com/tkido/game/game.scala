@@ -22,13 +22,20 @@ class Game(controller:Controller, view:View) {
     View(Clock)
     command match {
       case Pass =>
-        for(yu <- yukkuries)
-          yu.simulate
+        for(i <- 1 to 1){
+          Clock.step
+          for(yu <- yukkuries)
+            yu.simulate
+        }
       case Quit =>
         Logger.debug("quit")
       case Create =>
         val yu = YukkuriFactory(ReimuSpecies)
+        yu.setSize(1.0)
         yukkuries.add(yu)
+        val yu2 = YukkuriFactory(ReimuSpecies)
+        yu2.setSize(0.13)
+        yukkuries.add(yu2)
       case Status =>
         for(yu <- yukkuries)
           View(yu.toString)

@@ -8,6 +8,7 @@ object Translator {
     val content = action match{
       case PassAction(a) => a.label + "はゆっくりしているよ！"
       case GreetingAction(a, t) => t.label + "ゆっくりしていってね！！！"
+      case DieAction(a) => "もっとゆっくりしたかった……"
       case _ => ()
     }
     """%s「%s」""".format(action.actor.label, content)

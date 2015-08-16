@@ -10,9 +10,11 @@ import com.tkido.tools.Logger
 abstract class Yukkuri(val species:Species) extends Actor with Identical{
   Logger.debug(id)
   
-  var size:Double = 1.0
-  var life:Double = 1.0
-  var energy:Double = 1.0
+  private var size:Double = 1.0
+  private var life:Double = 1.0
+  private var energy:Double = 1.0
+  
+  private var cr = 1.0
   
   def simulate{
     metabolize
@@ -20,12 +22,18 @@ abstract class Yukkuri(val species:Species) extends Actor with Identical{
     //ActionHandler(GreetingAction(this, EveryOne))
   }
   
+  
+  def setSize(newSize:Double){
+    size = newSize
+    cr = math.pow(size, 9.0/4.0) * 0.001
+    println(cr)
+  }
+  
   private def metabolize{
-    val consumption = math.pow(size, 9.0/4.0) / 5760 //4*24*60 = 4日間
-    if(consumption > energy)
+    if(cr > energy)
       ActionHandler(DieAction(this))
     else
-      energy -= consumption
+      energy -= cr
   }
   
   
